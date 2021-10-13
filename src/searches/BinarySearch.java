@@ -2,7 +2,7 @@ package searches;
 
 /**
  * @author: neo
- * @description: 二分查找
+ * @description: 二分查找 O(log n)
  */
 public class BinarySearch {
 
