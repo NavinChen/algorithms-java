@@ -6,6 +6,10 @@ package practice;
  */
 public class DevideAndConquer {
 
+    /**
+     * @author: neo
+     * @description: 算法图解第4章 4.1 请编写前述sum函数的代码
+     */
     public static int sum(int[] array) {
         // base line condition
         if (array.length == 0) {
@@ -28,10 +32,30 @@ public class DevideAndConquer {
         
         return result;
     }
+
+    /**
+     * @author: neo
+     * @description: 算法图解第4章 4.2 编写一个递归函数来计算列表包含的元素数
+     */
+    public static int size(int[] array) {
+        System.out.println(" 1 ");
+        // base line condition
+        if (array.length == 0) {
+            return 0;
+        }
+
+        if (array.length == 1) {
+            return 1;
+        }
+
+        // recursive condition
+        return 1 + size(removeElement(array, 0 ));
+    }
     
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4, 5};
         System.out.println(sum(array));
+        System.out.println(size(array));
     }
     
 }
