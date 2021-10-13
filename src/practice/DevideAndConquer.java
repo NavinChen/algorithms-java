@@ -38,7 +38,6 @@ public class DevideAndConquer {
      * @description: 算法图解第4章 4.2 编写一个递归函数来计算列表包含的元素数
      */
     public static int size(int[] array) {
-        System.out.println(" 1 ");
         // base line condition
         if (array.length == 0) {
             return 0;
@@ -51,11 +50,32 @@ public class DevideAndConquer {
         // recursive condition
         return 1 + size(removeElement(array, 0 ));
     }
+
+    /**
+     * @author: neo
+     * @description: 算法图解第4章 4.3 找出列表中最大的数字
+     */
+    public static int max(int[] array) {
+        // base line condition
+        if (array.length == 0) {
+            return 0;
+        }
+
+        if (array.length == 1) {
+            return array[0];
+        }
+
+        // recursive condition
+        int max = array[0];
+        int next = max(removeElement(array, 0));
+        return max > next ? max : next;
+    }
     
     public static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5};
+        int[] array = {1, 3, 5, 7, 9};
         System.out.println(sum(array));
         System.out.println(size(array));
+        System.out.println(max(array));
     }
     
 }
