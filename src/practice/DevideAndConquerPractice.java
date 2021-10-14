@@ -4,7 +4,7 @@ package practice;
  * @author: neo
  * @description: D&C
  */
-public class DevideAndConquerPracticeDemo {
+public class DevideAndConquerPractice {
 
     /**
      * @author: neo
