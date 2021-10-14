@@ -4,7 +4,7 @@ package practice;
  * @author: neo
  * @description: D&C
  */
-public class DevideAndConquer {
+public class DevideAndConquerPracticeDemo {
 
     /**
      * @author: neo
@@ -70,12 +70,40 @@ public class DevideAndConquer {
         int next = max(removeElement(array, 0));
         return max > next ? max : next;
     }
+
+    /**
+     * @author: neo
+     * @description: 算法图解第4章 4.4 还记得第1章介绍的二分查找吗？它也是一种分而治之算法。你能找出二分查找算法的基线条件和递归条件吗？
+     */
+    public static int binarySearch(int[] array, int element, int low, int high) {
+        int middle = (low + high) / 2;
+        int guess = array[middle];
+
+        // base line condition
+        if (low > high) {
+            return -1;
+        }
+        
+        if (guess == element) {
+            return middle;
+        }
+
+        // recursive condition
+        if (guess > element) {
+            high = middle - 1;
+        } else {
+            low = middle + 1;
+        }
+
+        return binarySearch(array, element, low, high);
+    }
     
     public static void main(String[] args) {
-        int[] array = {1, 3, 5, 7, 9};
+        int[] array = {1, 3, 5, 7, 9, 11, 13, 15};
         System.out.println(sum(array));
         System.out.println(size(array));
         System.out.println(max(array));
+        System.out.println(binarySearch(array, 11, 0, array.length - 1));
     }
     
 }
