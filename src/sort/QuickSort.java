@@ -14,6 +14,7 @@ public class QuickSort {
 
     public static void qsort(int[] array, int left, int right) {
         if (left < right) {
+            printArray("qsor", array);
             int base = partition(array, left, right);
             qsort(array, left, base - 1);
             qsort(array, base + 1, right);
@@ -30,11 +31,12 @@ public class QuickSort {
                 cursor ++;
             }
             
-            printArray(array);
+            printArray("swap", array);
         }
 
+        // cursor与right替换后，cursor左小右大
         swap(array, cursor, right);
-        printArray(array);
+        printArray("part", array);
         return cursor;
     }
 
@@ -44,16 +46,15 @@ public class QuickSort {
         array[j] = temp;
     }
 
-    public static void printArray(int[] array) {
-        System.out.println(Arrays.toString(array));
+    public static void printArray(String prefix, int[] array) {
+        System.out.println(prefix + " " + Arrays.toString(array));
     }
     
     public static void main(String[] args) {
         int[] array = {10, 5, 2, 3, 11, 9};
-        printArray(array);
+        printArray("sour", array);
         qsort(array);
-        System.out.println("result ");
-        printArray(array);
+        printArray("sort", array);
     }
     
 }
